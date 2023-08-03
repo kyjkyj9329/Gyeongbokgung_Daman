@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/df4f7d9123.js" crossorigin="anonymous"></script>
+  <!-- Custom JS & CSS -->
+  <script defer src="/js/include.js"></script>
+  <script defer src="/04_reservation_DayAndNight/js/eventData.js"></script>
+  <script defer src="./js/script.js"></script>
+  <link rel="stylesheet" href="./css/package-booking.css">
+  <title>예약하기</title>
+</head>
+<body>
+  <!-- Main Navigation -->
+  <div class="main-nav-include"></div>
+
+  <!-- Reservation -->
+  <div id="reservation-content">
+
+    <div class="reservation-inner">
+      <div class="reservation-inner-heading">
+        <h1>패키지 예약하기</h1>
+        <a href="/reservation-confirm.html">
+          <i class="bi bi-check-circle"></i>
+          예약 확인/취소
+        </a>
+      </div>
+      <div class="reservation-inner-wrap">
+        <div class="reservation-items">
+          <div class="reservation-item-flex1">
+            <div class="reservation-item item1">
+              <div class="reservation-item-heading">
+                <i class="fas fa-calendar-days"></i>
+                <p>날짜 선택</p>
+              </div>
+              <hr />
+              <div class="reservation-item-content">
+                  <form id="reservation-calendar">
+                    <div class="calendar-title">
+                        <a href="#" class="calendar-prev-button" onclick="changeMonth(-1)"></a>
+                        <div id="calYyyyMM">
+                          <span class="year"></span>
+                          <span class="month"> </span>
+                        </div>
+                        <a href="#" class="calendar-next-button" onclick="changeMonth(1)"></a>
+                    </div>
+                    <div class="calendar-data">
+                      <table id="calendar-table">
+                        <colgroup>
+                          <col width="14.28%" span="7">
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </form>
+              </div>
+            </div>
+            <div class="reservation-item item2">
+              <div class="reservation-item-heading">
+                <i class="fa-regular fa-square-plus"></i>
+                <p>회차 선택</p>
+              </div>
+              <hr />
+
+              <div class="reservation-item-content select-events">
+                <div class="event-text">
+                  낮의 행사 - <span class="day-event"></span>
+                </div>
+                <select name="select-time" id="select-time-day">
+                  <option value="" disabled selected>회차를 선택해 주세요</option>
+                </select>
+                <div class="event-text">
+                  밤의 행사 - <span class="night-event"></span>
+                </div>
+                <select name="select-time" id="select-time-night">
+                  <option value="" disabled selected>회차를 선택해 주세요</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="reservation-item add-item">
+              <div class="reservation-item-heading">
+                <i class="fas fa-plus"></i>
+                <p>인원 선택</p>
+              </div>
+              <hr />
+              <div class="reservation-item-content">
+                <div class="reservation-ticket">
+                  <div class="number-ticket">
+                    <span>일반인</span>
+                    <div class="price-wrap">
+                      <div> <!--div 추가-->
+                        <span>
+                          낮 : <b class="public-day price">0</b>원 +
+                        </span>
+                        <span>
+                          밤 : <b class="public-night price">0</b>원
+                        </span>
+                      </div> <!--div 추가-->
+                      <span class="number-box">
+                        <button class="decrease" value="-1" onclick="addTicket(-1,event)">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <span class="public count">0</span>
+                        <button  onclick="addTicket(1,event)">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="number-ticket">
+                    <span>할인 대상자</span>
+                    <div class="price-wrap">
+                      <div> <!--div 추가-->
+                        <span>
+                          낮 : <b class="discount-day price">0</b>원 +
+                        </span>
+                        <span>
+                          밤 : <b class="discount-night price">0</b>원
+                        </span>
+                      </div> <!--div 추가-->
+                        <span class="number-box">
+                        <button class="decrease" onclick="addTicket(-1,event)">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <span class="discount count">0</span>
+                        <button  onclick="addTicket(1,event)">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="reservation-info">
+                  <ul>
+                    <li>
+                      - 할인정보 : 장애인 50%할인(1~3급: 본인 포함 2인 / 4급이하:본인 한정), 국가유공자 본인
+                      한정 50% 할인
+                    </li>
+                    <li>
+                      - 현장에서 증빙자료를 확인할 예정이오니 신분증(국가유공자증, 장애인 복지카드 등)을
+                      반드시 지참하여 주시기 바랍니다.
+                    </li>
+                    <li>
+                      - 현장에서 증빙서류를 지참하지 않거나 할인기준과 다른 경우 별빛야행의 참가가 취소
+                      조치되며, 별도의 환불이 불가함을 알려드립니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="reservation-total-price">
+                <p>총: <span class="total-person">0</span>명</p>
+                <span class="total-price">0원</span>
+              </div>
+            </div>
+          </div>
+          <div class="reservation-item-flex2">
+            <div class="reservation-item item4">
+              <div class="reservation-item-heading">
+                <i class="bi bi-person-circle"></i>
+                <p>예약자 정보</p>
+              </div>
+              <hr />
+              <div class="reservation-item-content user-inpo">
+                <div class="reservation-info">
+                  <label for="name">
+                    <i class="bi bi-person-fill"></i>
+                    <p>예매자 이름</p>
+                  </label>
+                  <input type="text" id="name">
+                </div>
+                <div class="reservation-info">
+                  <label for="phone1">
+                    <i class="bi bi-phone"></i>
+                    <p>휴대폰 번호</p>
+                  </label>
+                  <div class="phone">
+                    <input id="phone1" class="phoneNum" type="text" onchange="changePhone1()" onkeyup="onchange()" maxlength="3"/>
+                    <input id="phone2" class="phoneNum" type="text" onchange="changePhone2()" onkeyup="onchange()" maxlength="4"/>
+                    <input id="phone3" class="phoneNum" type="text" onchange="changePhone3()" onkeyup="onchange()" maxlength="4"/>
+                  </div>
+                </div>
+                <div class="reservation-info">
+                  <label for="name">
+                    <i class="bi bi-envelope"></i>
+                    <p>이메일</p>
+                  </label>
+                  <input type="email" id="email">
+                </div>
+                <div class="reservation-info">
+                  <label for="name">
+                    <i class="bi bi-key-fill"></i>
+                    <p>비밀번호</p>
+                  </label>
+                  <input type="password" id="password">
+                </div>
+              </div>
+            </div>
+            <div class="reservation-item item5">
+              <div class="reservation-item-heading">
+                <input type="checkbox" id="agree" onchange="payBtnDisabled()">
+                <label for="agree">이용자 약관동의</label>
+              </div>
+              <hr />
+              <div class="reservation-item-content">
+                <ul class="agreement">
+                  <li class="item">
+                    <div class="agreement-item">
+                      <input type="checkbox" id="agreement-checkbox1" onclick="checkSelectAll()" onchange="payBtnDisabled()">
+                      <label for="agreement-checkbox1">
+                        개인정보 수집, 이용 동의 <span>(필수)</span>
+                      </label>
+                    </div>
+                    <span class="view-detail">내용보기</span>
+                    <div class="text">예매자 확인 및 예매처리를 위해 아래와 같이 개인정보를 수집·이용 합니다. 동의를 거부하실 수 있으며, 이 경우 서비스 이용이 제한될 수 있습니다.</div>
+                  </li>
+                  <li class="item">
+                    <div class="agreement-item">
+                      <input type="checkbox" id="agreement-checkbox2" onclick="checkSelectAll()" onchange="payBtnDisabled()">
+                      <label for="agreement-checkbox2">
+                        개인정보 제3자 제공 동의 <span>(필수)</span>
+                      </label>
+                    </div>
+                    <span class="view-detail">내용보기</span>
+                    <div class="text">예매내역 확인 및 고객응대 등 서비스 제공을 위하여 아래와 같이 정보가 제공됩니다. 동의를 거부하실 수 있으며, 이 경우 서비스 이용이 제한될 수 있습니다.</div>
+                  </li>
+                  <li class="item">
+                    <div class="agreement-item">
+                      <input type="checkbox" id="agreement-checkbox3" onclick="checkSelectAll()" onchange="payBtnDisabled()">
+                      <label for="agreement-checkbox3">
+                        만 14세 이상에 동의 <span>(필수)</span>
+                      </label>
+                    </div>
+                    <span class="view-detail">내용보기</span>
+                    <div class="text">만 14세 이상 동의 전문 (필수동의) 본 서비스는 전자상거래 결제 특성상 만 14세 이상만 이용 가능합니다. 만 14세 이상임을 확인합니다.</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="reservation-item item6">
+              <div class="reservation-item-heading">
+                <input type="checkbox" id="cancel" onclick="payBtnDisabled()" onchange="payBtnDisabled()">
+                <label for="cancel">취소 / 환불규정 동의</label>
+              </div>
+              <hr />
+              <div class="reservation-item-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>취소일</td>
+                      <td>취소수수료</td>
+                    </tr>
+                    <tr>
+                      <td>예매 당일</td>
+                      <td>취소수수료 없음</td>
+                    </tr>
+                    <tr>
+                      <td>입장 24시간 ~ 48시간 전</td>
+                      <td>결제 금액의 20%</td>
+                    </tr>
+                    <tr>
+                      <td>입장 2일 ~ 4일 전</td>
+                      <td>결제 금액의 40%</td>
+                    </tr>
+                    <tr>
+                      <td>입장 4일 ~ 7일 전</td>
+                      <td>결제 금액의 60%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="reservation-item item7">
+              <div class="reservation-item-heading">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>예약 유의사항</p>
+              </div>
+              <hr />
+              <div class="reservation-item-content">
+                <p>- 결제 시, 사용 업체는 문화재청으로 표시됩니다.</p>
+                <p>- 결제 완료 후 모바일티켓이 휴대폰으로 전송됩니다.</p>
+                <p>- 거래 영수증 확인 및 예약 취소는 예약내역 페이지에서 확인 가능합니다.</p>
+                <p>- 예매시 주차장 2시간 할인(영수증 한장당 1대 할인적용으로 2대이상 주차시 분할 구매해야 합니다.</p>
+                <p>- 36개월 미만은 무료입니다.</p>
+              </div>
+            </div>
+            <div class="reservation-item item9">
+              <div class="reservation-item-heading">
+                <select name="" id="select-payment" onchange="payBtnDisabled()">
+                  <option value="">결제수단을 선택해주세요</option>
+                  <option value="">신용카드</option>
+                  <option value="">계좌이체</option>
+                </select>
+              </div>
+            </div>
+            <button id="reservation-button-submit" class="reservation-item item10" disabled>결제하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+          <!-- Modal -->
+    <div class="modal-wrap">
+      <div class="modal-page">
+        <div class="modal-content">
+          <div class="top">
+            <div class="icon">
+              <i class="fa-regular fa-circle-check"></i>
+            </div>
+            <h1>예약 완료</h1>
+            <span>예약이 완료되었습니다. 예약 내용을 다시 한번 확인해주시길 바랍니다.</span>
+          </div>
+          <div class="modal-info">
+            <div>
+              <span>예매자</span>
+              <span class="reserved-name"></span>
+            </div>
+            <div>
+              <span>행사 정보</span>
+              <span class="reserved-event"></span>
+            </div>
+            <div>
+              <span>행사 일시</span>
+              <span class="reserved-event-date"></span>
+            </div>
+            <div>
+              <span>총 인원</span>
+              <span class="reserved-personnel"></span>
+            </div>
+            <div>
+              <span>예매 번호</span>
+              <span class="reserved-number"></span>
+            </div>
+          </div>
+          <div class="modal-buttons">
+            <button class="Ticketing-check">예매내역 조회</button>
+            <button class="close">닫기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main Footer -->
+  <div class="main-footer-include"></div>
+</body>
+</html>

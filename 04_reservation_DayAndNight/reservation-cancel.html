@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- Featherlight -->
+  <script src="/featherlight/featherlight.js"></script>
+  <link rel="stylesheet" href="/featherlight/featherlight.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/df4f7d9123.js" crossorigin="anonymous"></script>
+  <!-- Custom JS & CSS -->
+  <script defer src="/js/include.js"></script>
+  <script defer src="./js/reservation.js"></script>
+
+  <link rel="stylesheet" href="./css/reservation.css">
+  <title>예약 취소</title>
+</head>
+<body>
+  <div class="main-nav-include"></div>    
+  <div id="reservation-content" class="modal">
+    <div class="reservation-inner">
+      <div class="reservation-inner-heading">
+        <h1>예매 취소하기</h1>
+      </div>
+      <div class="reservation-inner-wrap">
+        <div class="reservation-items">
+          <div class="reservation-item-flex1">
+            <div class="reservation-item item1">
+              <div class="reservation-item-heading">
+                <p>01 취소 수량 선택</p>
+              </div>
+              <hr />
+              <div class="reservation-item-content">
+                <ul class="cancel-amount">
+                  <li>
+                    <input type="checkbox" id="cancel-item-checkbox1">
+                    <label for="cancel-item-checkbox1">
+                      권종
+                    </label>
+                    <span>가격</span>
+                  </li>
+                  <hr />
+                  <li>
+                    <input type="checkbox" id="cancel-item-checkbox2">
+                    <label for="cancel-item-checkbox2">
+                      2023년 경복궁 별빛야행
+                    </label>
+                    <span>
+                      <span class="cancel-item-price"></span>원
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="reservation-item-flex2">
+            <div class="reservation-item item2">
+              <div class="reservation-item-heading">
+                <p>02 취소 및 환불금액</p>
+              </div>
+              <hr />
+              <div class="reservation-item-content">
+                <ul class="cancel-price">
+                  <li>
+                    <span>결제 금액</span>
+                    <span>
+                      <span class="cancel-summary-price"></span>원
+                    </span>
+                  </li>
+                  <li>
+                    <span>취소 수량</span>
+                    <span class="cancel-summary-amount">1매</span>
+                  </li>
+                  <li>
+                    <span>취소 수수료율</span>
+                    <span>
+                      <span class="cancel-summary-fee-rate"></span>%
+                    </span>
+                  </li>
+                  <li>
+                    <span>취소 수수료</span>
+                    <span>
+                      <span class="cancel-summary-fee"></span>원
+                    </span>
+                  </li>
+                  <hr />
+                  <li>
+                    <span>총 환불금액</span>
+                    <span>
+                      <span class="cancel-summary-total-fee"></span>원
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="reservation-item item6">
+              <div class="reservation-item-heading">
+                <input type="checkbox" id="cancel-agreement-checkbox1">
+                <label for="cancel-agreement-checkbox1">
+                  취소/환불 규정
+                  <p>(동의 시 체크해주세요.)</p>
+                </label>
+              </div>
+              <hr />
+              <div class="reservation-item-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>취소일</td>
+                      <td>취소수수료</td>
+                    </tr>
+                    <tr>
+                      <td>예매 당일</td>
+                      <td>취소수수료 없음</td>
+                    </tr>
+                    <tr>
+                      <td>입장 24시간 ~ 48시간 전</td>
+                      <td>결제 금액의 20%</td>
+                    </tr>
+                    <tr>
+                      <td>입장 2일 ~ 4일 전</td>
+                      <td>결제 금액의 40%</td>
+                    </tr>
+                    <tr>
+                      <td>입장 4일 ~ 7일 전</td>
+                      <td>결제 금액의 60%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="cancel-booking-buttons">
+            <a href="#">예매 취소</a>
+            <a href="#">닫기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-footer-include"></div>
+</body>
+</html>

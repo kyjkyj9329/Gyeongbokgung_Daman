@@ -1,0 +1,150 @@
+@import url('/css/reset.css');
+@import url('https://webfontworld.github.io/ChosunNm/ChosunNm.css');
+
+#wrap {
+    margin-top: 15rem;
+    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#how-com-content {
+    margin: 50px auto;
+}
+iframe {
+    max-width: 1200px;
+    width: 100%;
+    height: 500px;
+}
+table {
+    width: 1200px;
+    border-top: 3px solid var(--main-color-yellow);
+    border-collapse: collapse;
+}
+td, th {
+    font-size: var(--font-size-mainText);
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-top: none;
+    word-break: keep-all;
+}
+th {
+    background-color: var(--bg-color-gray);
+    border-right: 1px solid #ddd;
+}
+.address {
+    margin-top: 30px;
+}
+.address th, .bus th, .subway th {
+    width: 400px;
+}
+.public-transport {
+    width: 1200px;
+}
+.parking-title {
+    margin: 50px 0 20px 0;
+}
+.parking-title h2 {
+    font-size: 2.5rem;
+}
+.parking-title span  {
+    color: #E13535;
+    font-size: var(--font-size-mainText);
+    font-weight: 500;
+}
+.subway,
+.parking-fee,
+.parking-fee-add {
+    margin-bottom: 20px;
+}
+.parking-fee {
+    text-align: center;
+}
+.parking-fee-add tr th:first-child {
+    width: 20%;
+}
+.notice-text p {
+    color: var(--font-color-subDesc);
+    line-height: 2.5rem;
+    font-size: 1.4rem;
+}
+.public-transport .red-text {
+    color: #E13535;
+    font-weight: 500;
+}
+.list {
+    display: flex;
+    align-items: first baseline;
+    gap: 1rem;
+}
+.list i {
+    font-size: 15px;
+    font-weight: 900;
+    font-style: normal;
+}
+.list p {
+    font-size: var(--font-size-mainText);
+    line-height: 2.5rem;
+}
+
+/* Mobile Parking Add */
+.mobile-parking-add {
+    display: none;
+}
+.mobile-parking-add th,
+.mobile-parking-add td {
+    padding: 1rem 1.5rem;
+}
+.mobile-parking-add p {
+    color: var(--font-color-subTitle);
+}
+.mobile-parking-add h3 {
+    font-size: var(--font-size-subDesc);
+    margin-bottom: 7px;
+}
+.mobile-parking-add .mo-list {
+    display: flex;
+    flex-direction: column;
+}
+
+@media all and (max-width:1024px) {
+    #wrap {
+        padding: 0 3rem;
+    }
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+    #how-com-content {
+        width: 100%;
+    }
+    #map1, #map2 {
+        width: 100%;
+        height: 350px;
+    }
+    table {
+        width: 100%;
+    }
+    .public-transport {
+        width: 100%;
+    }
+}
+@media all and (max-width:768px) {
+    #wrap {
+        padding: 0 3rem;
+    }
+    table {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .address th, .public-transport th, .subway th {
+        width: 20%;
+    }
+
+.mobile-parking-add {
+    display: block;
+}
+.pc-parking-add {
+    display: none;
+}
+}

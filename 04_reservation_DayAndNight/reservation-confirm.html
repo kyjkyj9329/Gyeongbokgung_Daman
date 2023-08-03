@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/df4f7d9123.js" crossorigin="anonymous"></script>
+  <!-- Custom JS & CSS -->
+  <script defer src="/js/include.js"></script>
+  <script defer src="./js/include_sub.js"></script>
+  <script defer src="./js/reservation.js"></script>
+
+  <link rel="stylesheet" href="./css/include_sub.css">
+  <link rel="stylesheet" href="./css/reservation.css">
+  <title>예약 확인/취소</title>
+</head>
+<body>
+  <!-- Main Navigation -->
+  <div class="main-nav-include"></div>
+  <div class="sub-banner-include"></div>
+
+  <!-- Reservation -->
+  <div id="reservation-content" class="confirm">
+    <div class="reservation-inner reservation-confirm">
+      <!-- <div class="reservation-confirm-bookbtn">
+        <a href="/04">
+          <i class="bi bi-check-circle"></i>
+          예약하기
+        </a>
+      </div> -->
+      <div class="reservation-confirm-main">
+        <div class="reservation-confirm-topnav">
+          <input type="radio" name="confirm" id="confirm-mobile" checked>
+          <label for="confirm-mobile">휴대폰 번호로 확인하기</label>
+          <input type="radio" name="confirm" id="confirm-email">
+          <label for="confirm-email">이메일로 확인하기</label>
+          <div class="confirm-mobile-content">
+            <form class="confirm-mobile-form">
+              <h1>휴대폰 - 예약 확인/취소</h1>
+              <input type="tel" id="confirm-mobile-tel" placeholder="휴대폰 번호를 입력해주세요.">
+              <input type="password" id="confirm-mobile-password" placeholder="비밀번호를 입력해주세요.">
+              <input type="submit" id="confirm-reservation-btn" value="예약 확인하기" onclick="confirmReservation()">
+              <div class="forgot-password">
+                <p>비밀번호가 기억나지 않으세요?</p>
+                <span class="reset-password-btn">비밀번호 재발급</span>
+                <div class="modal-background"></div>
+                <div class="reset-password">
+                  <h1>비밀번호 찾기</h1>
+                  <div class="reset-password-phone">
+                    <label for="phone1">
+                      <i class="bi bi-phone"></i>
+                      <p>휴대폰 번호</p>
+                    </label>
+                    <div class="phone">
+                      <input id="phone1" class="phoneNum" type="text" onchange="changePhone1()" onkeyup="onchange()" maxlength="3"/>
+                      <input id="phone2" class="phoneNum" type="text" onchange="changePhone2()" onkeyup="onchange()" maxlength="4"/>
+                      <input id="phone3" class="phoneNum" type="text" onchange="changePhone3()" onkeyup="onchange()" maxlength="4"/>
+                    </div>
+                  </div>
+                  <!-- Token -->
+                  <div class="token_wrapper">
+                    <div class="token" id="token">000000</div>
+                    <button id="token_button" onclick="getToken()" disabled>인증번호 전송</button>
+                  </div>
+                  <div class="token_wrapper">
+                    <div class="token_timer" id="token_timer">3:00</div>
+                    <button id="token_timer_confirm_button" disabled onclick="getTokenTimerConfirm()">인증 완료</button>
+                  </div>
+                  <ul class="reset-password-info">
+                    <li>예매 시, 입력 하신 휴대폰 번호를 확인 후 새로운 비밀번호로 발급하여 해당 휴대폰 번호 문자로 전송됩니다.</li>
+                    <li>입력하신 휴대폰 번호의 예매내역 모두 새로운 비밀번호로 변경되니, 유의해주시기 바랍니다.</li>
+                    <li>휴대폰 번호로 전송된 새로운 비밀번호로 로그인해주시기 바랍니다.</li>
+                    <li>입력하신 휴대폰 번호가 예매내역에 없을 시, 비밀번호 재발급이 불가합니다.</li>
+                  </ul>
+                  <div class="reset-password-buttons">
+                    <button id="reset-password-btn" disabled>비밀번호 찾기</button>
+                    <button class="btn-close-modal">닫기</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="confirm-email-content">
+            <form class="confirm-email-form">
+              <h1>이메일 - 예약 확인/취소</h1>
+              <input type="email" id="confirm-email-tel" placeholder="이메일을 입력해주세요." checked>
+              <input type="password" id="confirm-email-password"  placeholder="비밀번호를 입력해주세요.">
+              <input type="submit" id="confirm-reservation-btn2" value="예약 확인하기" onclick="confirmReservation2()">
+              <div class="forgot-password">
+                <p>비밀번호가 기억나지 않으세요?</p>
+                <span class="reset-password-btn2">비밀번호 재발급</span>
+                <div class="modal-background2"></div>
+                <div class="reset-password2">
+                  <h1>비밀번호 찾기</h1>
+                  <div class="reset-password-phone">
+                    <label for="phone1">
+                      <i class="bi bi-phone"></i>
+                      <p>휴대폰 번호</p>
+                    </label>
+                    <div class="phone">
+                      <input id="phone1" class="phoneNum" type="text" onchange="changePhone1()" onkeyup="onchange()" maxlength="3"/>
+                      <input id="phone2" class="phoneNum" type="text" onchange="changePhone2()" onkeyup="onchange()" maxlength="4"/>
+                      <input id="phone3" class="phoneNum" type="text" onchange="changePhone3()" onkeyup="onchange()" maxlength="4"/>
+                    </div>
+                  </div>
+                  <!-- Token -->
+                  <div class="token_wrapper">
+                    <div class="token" id="token">000000</div>
+                    <button id="token_button" onclick="getToken()" disabled>인증번호 전송</button>
+                  </div>
+                  <div class="token_wrapper">
+                    <div class="token_timer" id="token_timer">3:00</div>
+                    <button id="token_timer_confirm_button" disabled onclick="getTokenTimerConfirm()">인증 완료</button>
+                  </div>
+                  <ul class="reset-password-info">
+                    <li>예매 시, 입력 하신 휴대폰 번호를 확인 후 새로운 비밀번호로 발급하여 해당 휴대폰 번호 문자로 전송됩니다.</li>
+                    <li>입력하신 휴대폰 번호의 예매내역 모두 새로운 비밀번호로 변경되니, 유의해주시기 바랍니다.</li>
+                    <li>휴대폰 번호로 전송된 새로운 비밀번호로 로그인해주시기 바랍니다.</li>
+                    <li>입력하신 휴대폰 번호가 예매내역에 없을 시, 비밀번호 재발급이 불가합니다.</li>
+                  </ul>
+                  <div class="reset-password-buttons">
+                    <button id="reset-password-btn2" disabled>비밀번호 찾기</button>
+                    <button class="btn-close-modal2">닫기</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <hr />
+        <ul class="confirm-info">
+          <li>비회원으로 예매를 하신 고객님은 예매내역 확인/취소를 위해 예매 시, 입력하신 휴대폰 번호 혹은 이메일 주소로 로그인 가능합니다.</li>
+          <li>이메일 주소는 예매 시, 선택 항목이기 때문에 입력한 예매자에 한하여 로그인 가능합니다.</li>
+          <li>비밀번호는 예매 시, 입력한 4자리입니다.</li>
+          <li>비밀번호가 생각나지 않으시면 [비밀번호 재발급]을 통해 새로운 비밀번호를 발급받아 로그인 해주시기 바랍니다.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer -->
+  <div class="main-footer-include"></div>
+</body>
+</html>

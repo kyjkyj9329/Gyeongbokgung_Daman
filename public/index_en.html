@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@5.3.8/css/swiper.min.css">
+  <script src="https://unpkg.com/swiper@5.3.8/js/swiper.min.js"></script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/df4f7d9123.js" crossorigin="anonymous"></script>
+  <!-- Custom JS & CSS -->
+  <script defer src="/js/include.js"></script>
+  <script defer src="/js/script.js"></script>
+
+  <link rel="stylesheet" href="/css/include_en.css">
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+  <link rel="stylesheet" href="/css/style_en.css">
+  <title>Gyeongbokgung Management Office</title>
+</head>
+<body>
+  <!-- Main Navigation -->
+  <div class="main-nav-include_en"></div>
+  <section id="wrap">
+    <!-- Main Slide -->
+    <div id="main-slide-content">
+      <div class="main-slide">
+        <img src="/images/mainImg(1).png" alt="main slide1" class="show">
+        <img src="/images/mainImg(2).jpg" alt="main slide2">
+        <img src="/images/mainImg(3).jpg" alt="main slide3">
+        <img src="/images/mainImg(4).jpg" alt="main slide4">
+      </div>
+    </div>
+    <!-- Mid Nav -->
+    <div id="mid-nav-content">
+      <div class="mid-nav">
+        <ul>
+          <li>
+            <a href="/05_reservation_Package/gbg_package_en.html?type=packageReserve">
+              <div class="mid-nav-icon">
+                <img src="/images/01_midNav(1).png" alt="midNav">
+              </div>
+              <p>Package</p>
+            </a>
+          </li>
+          <li>
+            <a href="/04_reservation_DayAndNight/dayReserve_en.html?type=dayReserve">
+              <div class="mid-nav-icon">
+                <img src="/images/01_midNav(2).png" alt="midNav">
+              </div>
+              <p>Day Reservation</p>
+            </a>
+          </li>
+          <li>
+            <a href="/04_reservation_DayAndNight/nightReserve_en.html?type=nightReserve">
+              <div class="mid-nav-icon">
+                <img src="/images/01_midNav(3).png" alt="midNav">
+              </div>
+              <p>Night Reservation</p>
+            </a>
+          </li>
+          <li>
+            <a href="/04_reservation_DayAndNight/dayReserve_en.html?type=dayReserve">
+              <div class="mid-nav-icon">
+                <img src="/images/01_midNav(4).png" alt="midNav">
+              </div>
+              <p>Confirm Reservation</p>
+            </a>
+          </li>
+          <li>
+            <a href="/01_useInfo/come_en.html?type=come">
+              <div class="mid-nav-icon">
+                <img src="/images/01_midNav(5).png" alt="midNav">
+              </div>
+              <p>Direction</p>
+            </a>
+          </li>
+          <li>
+            <a href="/06_notice/notice_en.html">
+              <div class="mid-nav-icon">
+                <img src="/images/01_midNav(6).png" alt="midNav">
+              </div>
+              <p>Notice</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Gbg Event -->
+    <div id="gbg-event-content">
+      <div class="gbg-event-inner">
+        <div class="articleTitle">
+          <div class="mainTitle">
+            <h4>Gyeongbokgung event</h4>
+          </div>
+          <p>Enjoy the beautiful Gyeongbokgung by time zone!</p>
+        </div>
+        <div class="gbg-event-box">
+          <div class="gbg-event-day">
+            <img src="/images/02_gbgEvent_day.png" alt="" class="pc">
+            <img src="/images/02_gbgEvent_day_mo.png" alt="" class="mo">
+            <div class="gbg-event-title">
+              <h5>Day of Gyeongbokgung</h5>
+              <p>
+                The history and culture<br />of Joseon rising with the sun
+              </p>
+            </div>
+            <a href="#" class="gbg-event-moreView">
+              View details
+              <i class="fa fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="gbg-event-night">
+            <img src="/images/02_gbgEvent_night.png" alt="" class="pc">
+            <img src="/images/02_gbgEvent_night_mo.png" alt="" class="mo">
+            <div class="gbg-event-title">
+              <h5>Night of Gyeongbokgung</h5>
+              <p>
+                The beautiful night and wind currents<br />of Joseon
+                rising with the moon
+              </p>
+            </div>
+            <a href="#" class="gbg-event-moreView">
+              View details
+              <i class="fa fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Monthly Event -->
+    <div id="monthlyEvent-content">
+      <div class="articleTitle">
+        <h4>This Month's Event</h4>
+        <p>Move or scroll through the timeline to experience this month's festivals and events!</p>
+      </div>
+          <!-- == Calendar == -->
+        <div class="monthlyEvent-calendar">
+          <div class="calendar-title">
+            <span>Schedule</span>
+            <a href="#"><i class="fa-solid fa-plus"></i></a>
+          </div>
+          <div class="calendar-control">
+            <button class="calendar-prev-button" onclick="changeMonth(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="year-wrap">
+              <span class="month"></span>
+              <p class="year"></p>
+            </div>
+            <button class="calendar-next-button" onclick="changeMonth(1)"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+          <table class="calendar">
+            <thead>
+              <tr>
+                <th style="color:red">Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th style="color:blue">토</th>
+              </tr>
+              <tbody class="pc-calendar link">
+
+              </tbody>
+              <tbody class="mobile-calendar link">
+                
+              </tbody>
+            </thead>
+          </table>
+        </div>
+          <!-- ##### Slide ##### -->
+      <div class="monthlyEvent-slide">
+        <div class="slide-wrap">
+          <ul class="slide-items">
+            <li>
+              <div class="event-item">
+                <img src="/images/day1.jpg" alt="">
+                <h3 class="item-title">2023 Gyeongbokgung Saeng Gwa Bang</h3>
+                <p class="item-desc">Saeng-gwa-bang, located in the pavilion of So-ju-bang in Gyeongbokgung Palace, is one of the royal court's Yuk-cheup-so, and was also called Saeng-mul-bang or Saeng-geot-bang as a place where desserts and special meals for the King and Queen were prepared. The Gyeongbokgung Saeng-gwa-bang Program is an experience program designed to allow visitors to enjoy royal medicine and tea that the actual king ate today based on the contents of the Annals of the Joseon Dynasty.</p>
+                <span class="item-period"><i class="fa-solid fa-calendar-days"></i> 2023.04.20 ~ 2023.06.28</span>
+                <button class="view-more"><a href="/04_reservation_DayAndNight/dayReserve.html?type=dayReserve">View details</a></button>
+              </div>
+            </li>
+            <li>
+              <div class="event-item">
+                <img src="/images/day2.jpg" alt="">
+                <h3 class="item-title">[The Old Palace Concert] To add groove to the wind stream</h3>
+                <p class="item-desc">The Old Palace Concert is a palace-specific performance, and we would like to provide high-quality performance viewing contents by utilizing the location and regional characteristics of the palace. In the first half of 2023, the permanent performance "To add groove to the wind stream" will present a high-quality performance that collaborates variously with Korean traditional music, traditional dance, and jazz.</p>
+                <span class="item-period"><i class="fa-solid fa-calendar-days"></i> 2023.05.29 ~ 2023.06.06</span>
+                <button class="view-more"><a href="/04_reservation_DayAndNight/dayReserve.html?type=dayReserve">View details</a></button>
+              </div>
+            </li>
+            <li>
+              <div class="event-item">
+                <img src="/images/day3.jpg" alt="">
+                <h3 class="item-title">[Royal Cultural Festival] Humanities Concert <Royal Bookstore-The Invitation of King Gojong></h3>
+                <p class="item-desc">Jip-ok-chae, which means "collecting precious treasures like jade," is a place where King Gojong used it as a study during the Joseon Dynasty and received foreign envoys. King Gojong read books and had a time of contemplation here. Based on the special value of a library in the palace, it was first opened to the public in 2016, but now it is only open for some periods. Through this opportunity, we will open the Palace Bookstore so that you can look around the quiet space of King Gojong in the beautiful palace.</p>
+                <span class="item-period"><i class="fa-solid fa-calendar-days"></i> 2023.06.20 ~ 2023.07.28</span>
+                <button class="view-more"><a href="/04_reservation_DayAndNight/dayReserve.html?type=dayReserve">View details</a></button>
+              </div>
+            </li>
+            <li>
+              <div class="event-item">
+                <img src="/images/day4.png" alt="">
+                <h3 class="item-title">The Opening Ceremony of the 2023 Royal Culture Festival</h3>
+                <p class="item-desc">To mark the 40th anniversary of the return of the name of Changgyeonggung Palace, the 9th door of the Royal Cultural Festival will be opened. Please visit the palace with a welcome step and join us at a meaningful place to tell the story of the Palace of Finding Again. Gwanghwamun will be held, and a parade to mark the beginning of the royal cultural festival will enter and present creative performances based on the motif of the palace's miscellaneous statues and Cheoyongmu. Following the chorus with the children's choir and the cast of <Gunggung Musical-Sejong 1446>, the 2023 "New Royal Banquet" will be held to celebrate the opening of the festival.</p>
+                <span class="item-period"><i class="fa-solid fa-calendar-days"></i> 2023.07.28 ~ 2023.07.30</span>
+                <button class="view-more"><a href="/04_reservation_DayAndNight/dayReserve.html?type=dayReserve">View details</a></button>
+              </div>
+            </li>
+            <li>
+              <div class="event-item">
+                <img src="/images/night1.jpg" alt="">
+                <h3 class="item-title">2023 Gyeongbokgung Palace: Starlight Tour</h3>
+                <p class="item-desc">On a star-filled June night, the gate of Gyeongbokgung Palace opens. Under the subtle starlight, let's enjoy a Korean traditional music performance at Gyeongbokgung Soju Room, taste the king's Surasang, and go on a starlight walk at Gyeongbokgung Palace with a professional commentator. Go through Janggo, Jipokjae, Palujeong, and Geoncheonggung Palace to meet the old stories of the palace, and feel the atmosphere of Hyangwonjeong where Gojong walked under the pouring starlight</p>
+                <span class="item-period"><i class="fa-solid fa-calendar-days"></i> 2023.06.15 ~ 2023.07.13</span>
+                <button class="view-more"><a href="/02_event/event.html?type=night">View details</a></button>
+              </div>
+            </li>
+            <li>
+              <div class="event-item">
+                <img src="/images/night2.jpg" alt="">
+                <h3 class="item-title">2023 Sympathy for Suragan's Tasting</h3>
+                <p class="item-desc">Tasting Sympathy is a traditional cultural complex experience program that directly experiences court food culture under the theme of seeing, eating, enjoying, and touching court culture. There are royal soldiers sitting in the pavilion, royal food, snacks that can only be tasted in the alleyways of Haengnangchae, and traditional games with courtiers in the Joseon Dynasty.</p>
+                <span class="item-period"><i class="fa-solid fa-calendar-days"></i> 2023.06.25 ~ 2023.07.04</span>
+                <button class="view-more"><a href="/02_event/event.html?type=night">View details</a></button>
+              </div>
+            </li>
+            <li>
+              <div class="event-item">
+                <img src="/images/night3.jpg" alt="">
+                <h3 class="item-title">[Royal Culture Festival] The Old Palace Musical - Sejong 1446</h3>
+                <p class="item-desc">A special number unique to <Sejong 1446> with a lively action and intense group dance! The <Sejong 1446>, which will be presented at Geunjeongjeon Hall in Gyeongbokgung Palace, will be newly participated by singer Lee Bong-geun as Dochang, and will be joined by about 80 cast members including original cast Park Yoo-deok, Jung Sang-yoon and Nam Kyung-ju.</p>
+                <span class="item-period"><i class="fa-solid fa-calendar-days"></i> 2023.07.29 ~ 2023.08.02</span>
+                <button class="view-more"><a href="/02_event/event.html?type=night">View details</a></button>
+              </div>
+            </li>
+            <li>
+              <div class="event-item">
+                <img src="/images/night4.png" alt="">
+                <h3 class="item-title">The 2nd Half of the Year Special Event of 2023 The Old Palace Musical - Ballet X Handmade Cloth</h3>
+                <p class="item-desc">The Old Palace Concert presents a variety of art experiences through collaboration with other genres such as pop music and modern dance as well as traditional art performances, and suggests a new look of the palace by developing a performance format suitable for the palace. As a planned performance in the second half of 2023, a crossover performance of ballet and Korean traditional music will be presented at night in the front yard of Jipokjae in Gyeongbokgung Palace.</p>
+                <span class="item-period"><i class="fa-solid fa-calendar-days"></i> 2023.08.22~2023.09.02</span>
+                <button class="view-more"><a href="/02_event/event.html?type=night">View details</a></button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="item-control">
+          <button class="item-prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="item-next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Slide -->
+    <div id="footerSlide-content">
+      <div class="articleTitle">
+        <div class="mainTitle">
+          <h4>This Month's Photo</h4>
+        </div>
+        <p>Drag left and right to see the pictures of Gyeongbokgung Palace!</p>
+      </div>
+      <div class="footerSlide-inner">
+        <div class="swiper-container">
+          <div class="swiper" dir="ltr">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(1).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(2).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(3).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(4).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(5).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(6).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(7).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(8).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(9).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(10).jpg" alt=""></div>
+            </div>
+          </div>
+          <div class="swiper" dir="rtl">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(11).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(12).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(13).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(14).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(15).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(16).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(17).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(18).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(19).jpg" alt=""></div>
+              <div class="swiper-slide"><img src="/images/04_fotterSlide(20).jpg" alt=""></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Main Footer -->
+  <div class="main-footer-include_en"></div>
+  <!-- Event Modal -->
+  <div class="main-event-modal">
+    <div class="modal-content">
+      <div class="modal-top">
+        <i class="fa-solid fa-circle-xmark close-btn"></i>
+      </div>
+      <div class="modal-content-inner">
+        <img src="/images/00_popup_en.png" alt="이벤트 팝업">
+      </div>
+      <div class="modal-bottom">
+        <p>
+          <a href="/06_notice/notice_en.html?type=eventModal">View Details</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

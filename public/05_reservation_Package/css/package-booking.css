@@ -1,0 +1,664 @@
+@import url('/reset.css');
+@import url('/css/style.css');
+/* 민욱 수정 */
+@import url('/css/include.css');
+/* 민욱 수정 */
+
+/* === Modal === */
+.modal-wrap {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  display: none;
+}
+.modal-wrap.active {
+  display: block;
+}
+.modal-wrap .modal-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70rem;
+  height: auto;
+  /* margin: 30rem auto; */
+  background-color: #fff;
+  padding: 5rem 10rem;
+}
+/* Content Top */
+.modal-page .modal-content .top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.modal-page .modal-content .top i {
+  font-size: 8rem;
+  color: var(--sub-color-blue);
+}
+.modal-page .modal-content .top h1 {
+  font-size: 3.5rem;
+  color: var(--sub-color-blue);
+}
+.modal-page .modal-content .top  span {
+  font-size: 1.4rem;
+  color: #666;
+}
+/* Content Info */
+.modal-page .modal-content .modal-info {
+  border-top: 3px solid var(--sub-color-blue);
+  border-bottom: 3px solid var(--sub-color-blue);
+  margin-bottom: 3rem;
+}
+.modal-page .modal-content .modal-info div {
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #ddd;
+
+  display: flex;
+}
+.modal-page .modal-content .modal-info div span:first-child {
+  color: #666;
+  display: inline-block;
+  width: 10rem;
+}
+.modal-page .modal-content .modal-info div span:last-child {
+  display: inline-block;
+  width: calc(100% - 10rem);
+  color: var(--font-color-subTitle);
+  font-weight: 500;
+}
+/* Modal Button */
+.modal-page .modal-content .modal-buttons{
+  text-align: center;
+
+  display: flex;
+  gap: 1.5rem;
+}
+.modal-page .modal-content .modal-buttons button {
+  padding: 1.5rem 1rem;
+  font-size: var(--font-size-mainText);
+  font-weight: bold;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+}
+.modal-buttons .Ticketing-check {
+  flex: 7;
+  background-color: var(--sub-color-blue);
+}
+.modal-buttons .close {
+  flex: 3;
+  background-color: #333;
+}
+
+
+
+
+
+/* === Reservation === */
+#reservation-content {
+  width: 100vw;
+  height: 100%;
+  padding-bottom: 200px;
+  background-color: var(--bg-color-gray);
+  border-bottom: 1px solid #ddd;
+}
+.reservation-inner {
+  /* border: 3px solid red; */
+  max-width: 1300px;
+  padding: 0 50px;
+  margin: 0px auto;
+}
+.reservation-inner-heading {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10rem;
+  margin-bottom: 2rem;
+}
+.reservation-inner-heading h1 {
+  color: var(--font-color-subTitle);
+  font-size: var(--font-size-subTitle);
+}
+.reservation-inner-heading a {
+  background-color: #aaa;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  width: 20rem;
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.reservation-inner-heading a i {
+  font-size: 2rem;
+  padding-right: 0.2rem;
+}
+.reservation-inner-heading a:hover {
+  background-color: #fff;
+  color: var(--sub-color-blue);
+  cursor: pointer;
+  border: 1px solid var(--sub-color-blue);
+}
+
+.reservation-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.reservation-item-flex1, .reservation-item-flex2 {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: calc((100% - 3rem)/2);
+}
+.reservation-item {
+  background-color: #fff;
+}
+.reservation-item hr {
+  border: 1px solid #efefef;
+}
+.reservation-item-heading {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.reservation-item-heading input[type=checkbox] {
+  font-size: 2rem;
+  color: var(--font-color-subDesc);
+
+  display: none;
+}
+.reservation-item-heading label {
+  display: inline-block;
+  padding-left: 0.2rem;
+  font-size: var(--font-size-subDesc);
+  font-weight: 600;
+}
+.reservation-item-heading label:hover {
+  cursor: pointer;
+}
+.reservation-item-heading label::before {
+  content: "\F26B";
+  font-family: bootstrap-icons;
+  display: inline-block;
+  margin-right: 1rem;
+  transform: translateY(3px);
+}
+.reservation-item-heading input[type=checkbox]:checked + label::before {
+  content: "\F26A";
+  font-family: bootstrap-icons;
+  color: var(--sub-color-blue);
+}
+.reservation-item-content {
+  padding: 2rem;
+}
+
+/* Reservation - Item1 */
+/* #reservation-calendar { */
+  /* width: 100%;
+  height: 30rem; */
+/* } */
+.calendar-title {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calendar-title span {
+  font-size: 2.4rem;
+  position: relative;
+}
+.calendar-title a:first-child::before {
+  content: "\F284";
+  font-family: bootstrap-icons;
+  display: inline-block;
+  transform: translateY(2px);
+  color: crimson;
+  font-weight: 800;
+}
+.calendar-title a:last-child::after {
+  content: "\F285";
+  font-family: bootstrap-icons;
+  display: inline-block;
+  transform: translateY(2px);
+  color: crimson;
+  font-weight: 800;
+}
+#calendar-table {
+  width: 100%;
+  height: 50rem;
+  text-align: center;
+}
+#calendar-table th,
+#calendar-table td a {
+  font-weight: 400;
+  font-size: var(--font-size-smallText);
+  color: black;
+}
+#calendar-table th:first-child,
+#calendar-table tr td:first-child a {
+  color: crimson;
+}
+#calendar-table th:last-child,
+#calendar-table tr td:last-child a {
+  color: blue;
+}
+#calendar-table td a {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+#calendar-table tr td:first-child.select a,
+#calendar-table tr td:last-child.select a {
+  color: #fff;
+}
+#calendar-table td.select a {
+  color: #fff;
+  background-color: var(--sub-color-blue);
+  border-radius: 50%;
+}
+
+
+/* Reservation - Item2 */
+.reservation-item  .desc {
+  padding: 2rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+.item2 .reservation-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item2 .select-events {
+  display: block;
+}
+#select-time-day,
+#select-time-night {
+  height: 4rem;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  padding-left: 1rem;
+}
+#select-time-day {
+  margin-bottom: 3rem;
+}
+.event-text {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.day-event,
+.night-event {
+  font-weight: bold;
+}
+
+/* Reservation - Item3 */
+#select-time {
+  height: 4rem;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  padding-left: 1rem;
+}
+
+/* Reservation - add-Item 표 갯수선택박스 */
+.add-item .reservation-item-content .reservation-ticket {
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+}
+.add-item .reservation-item-content .number-ticket {
+  padding: 1.5rem;
+  display:  flex;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  height: auto;
+}
+/* 민욱수정~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.number-ticket .price-wrap {
+  display:  flex;
+}
+/* 민욱수정~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.add-item .reservation-item-content .number-ticket:first-child {
+  border-bottom: 1px solid #ddd;
+}
+.number-ticket .price-wrap .price {
+  font-weight: bold;
+  color: var(--sub-color-blue);
+}
+.number-ticket .price-wrap .number-box {
+  border: 1px solid var(--sub-color-blue);
+  border-radius: 0.5rem;
+  margin-left: 1rem;
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.number-ticket .price-wrap .number-box button,
+.number-ticket .price-wrap .number-box .count {
+  display: inline-block;
+  border:  none;
+  background: none;
+  width: 3rem;
+  height: 100%;
+  text-align: center;
+} 
+.number-ticket .price-wrap .number-box button {
+  cursor: pointer;
+}
+
+.number-ticket .price-wrap .number-box .count {
+  border-left: 1px solid var(--sub-color-blue);
+  border-right: 1px solid var(--sub-color-blue);
+}
+.add-item .reservation-item-content .reservation-info {
+  margin-right: 0;
+  margin-left: 0;
+  font-size: 1.4rem;
+  color: #bbb;
+}
+.add-item .reservation-item-content .reservation-info li {
+  margin-bottom: 1rem;
+}
+.reservation-total-price {
+  height: 6rem;
+  background-color: var(--sub-color-blue);
+  color: #fff;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Reservation - Item4 */
+.reservation-info {
+  margin: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.reservation-info label {
+  display: flex;
+  justify-content: flex-end;
+  flex: 2;
+  gap: 1rem;
+  margin-right: 2rem;
+}
+.reservation-info input {
+  flex: 5;
+  width: 100%;
+  height: 4rem;
+  padding-left: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.phone {
+  flex: 5;
+  display: flex;
+}
+#phone1, #phone2, #phone3 {
+  width: 30%;
+  text-align: center;
+}
+#phone1 {
+  border-radius: 5px 0 0 5px;
+}
+#phone2 {
+  border-radius: 0;
+}
+#phone3 {
+  border-radius: 0 5px 5px 0;
+}
+.reservation-info:nth-child(4) i {
+  transform: rotate(90deg);
+}
+
+/* Reservation - Item5 */
+.agreement {
+  /* margin: 2rem; */
+  margin: 0 2rem;
+}
+.agreement .item {
+  position: relative;
+}
+.agreement-item input[type=checkbox] {
+  display: none;
+}
+.agreement-item label:hover {
+  cursor: pointer;
+}
+.agreement-item label::before {
+  content: "\F26B";
+  font-family: bootstrap-icons;
+  color: #b9b9b9;
+  display: inline-block;
+  transform: translateY(3px);
+}
+.agreement-item input:checked + label::before {
+  content: "\F26A";
+  font-family: bootstrap-icons;
+  color: var(--sub-color-blue);
+}
+.view-detail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--sub-color-blue);
+}
+.view-detail:hover {
+  cursor: pointer;
+}
+
+/* Text Content */
+.agreement .item .text {
+  opacity: 0;
+  height: 0;
+  padding: 0 2rem;
+  border-top: 1px solid #eee;
+  margin-top: 2rem;
+  position: relative;
+  transition: all 0.6s cubic-bezier(.42,.2,.08,1);
+  overflow: hidden;
+}
+
+/* Text Content - Class for JS to hide and show */
+.agreement .item .text.show {
+  opacity: 1;
+  height: auto;
+  padding: 25px 20px;
+  position: relative;
+  z-index: 0;
+}
+
+/* Reservation - Item6 */
+.item6 table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 1rem;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px #b9b9b9;
+  text-align: center;
+  font-size: var(--font-size-smallText);
+}
+.item6 td {
+  border: 1px solid #b9b9b9;
+  height: 4rem;
+}
+.item6 tr {
+  border-radius: 2rem;
+}
+.item6 table tr:first-child {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Reservation - Item7 */
+.item7 .reservation-item-content {
+  margin: 1rem 2rem;
+}
+.item7 .reservation-item-content p {
+  margin: 1rem;
+}
+
+/* Reservation - Item8 */
+.item8 .reservation-item-heading {
+  display: flex;
+  justify-content: space-between;
+}
+.item8 .reservation-item-heading span {
+  font-weight: 600;
+  color: var(--sub-color-blue);
+}
+
+/* Reservation - Item9 */
+.item9 #select-payment {
+  height: 4rem;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  padding-left: 1rem;
+}
+
+/* Reservation - Button */
+#reservation-button-submit {
+  width: 100%;
+  height: 9rem;
+  margin: 0 auto;
+  background-color: var(--sub-color-blue);
+  border: none;
+  border-radius: 5rem;
+  color: #fff;
+  font-size: 2.4rem;
+  transition: 0.3s;
+}
+#reservation-button-submit:disabled {
+  background-color: #ddd;
+}
+/* #reservation-button-submit:hover {
+  background-color: #fff;
+  color: var(--sub-color-blue);
+  cursor: pointer;
+  border: 1px solid var(--sub-color-blue);
+} */
+
+/* Media Query - Tablet Size */
+@media all and (max-width: 1024px) {
+  html {
+    font-size: 55%;
+  }
+  .reservation-inner {
+    max-width: 80vw;
+    padding: 0;
+    padding-bottom: 50px;
+    margin: 0px auto;
+  }
+  .reservation-items {
+    flex-direction: column;
+  }
+  .reservation-item-flex1,
+  .reservation-item-flex2 {
+    width: 100%;
+  }
+  .reservation-info label {
+    justify-content: flex-start;
+  }
+  .reservation-info input, .phone {
+    flex: 8;
+  }
+}
+
+/* Media Query - Mobile Size */
+@media all and (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+  .reservation-inner-heading {
+    flex-direction: column;
+    align-items: center;
+    flex-flow: column-reverse;
+    gap: 2rem;
+  }
+  #calendar-table td a  {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .item2 .reservation-item-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  /* #select-event,
+  .select-event {
+    width: 100%;
+  } */
+  .item2 .reservation-item-content i {
+    transform: rotate(90deg);
+  }
+  .item4 .reservation-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .reservation-info input {
+    flex: none;
+  }
+  #phone1, #phone2, #phone3 {
+    width: 33.3%;
+  }
+  .item5 label {
+    font-size: 1.5rem;
+  }
+  .item5 .view-detail {
+    font-size: 1rem;
+    top: 3px;
+  }
+  .item5 .text {
+    font-size: 1.5rem;
+  }
+
+  .reservation-info label {
+    width: 100%;
+    justify-content: flex-start;
+    flex: 2;
+    gap: 1rem;
+    margin-right: 0;
+  }
+/* 민욱수정~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.add-item .reservation-item-content .number-ticket {
+  align-items: start;
+  flex-direction: column;
+}
+.number-ticket > span {
+  margin-bottom: 1rem;
+}
+.number-ticket .price-wrap {
+  padding: 0;
+  display:  flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items:start;
+  justify-content: center;
+  gap: 1rem;
+}
+.number-ticket .price-wrap .number-box {
+  width: 80px;
+  margin-left: 0;
+}
+/* 민욱수정~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+}
+
+
